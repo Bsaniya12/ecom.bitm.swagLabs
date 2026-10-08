@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>TestNG:  All Test Scripts</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>All Test Scripts</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>19/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 08 11:34:12 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>154 seconds (154069 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='swaglabs.tests.Checkout.BlankFirstName_Test.blankFirstNameTest()'><b>blankFirstNameTest</b><br>Test class: swaglabs.tests.Checkout.BlankFirstName_Test</td>
+<td></td>
+<td>12</td>
+<td>swaglabs.tests.Checkout.BlankFirstName_Test@351d00c0</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-N-001, Checkout, Negative, Verify error when First Name is blank, Product is in Cart and Checkout is open., 1. Leave First Name blank
+2. Enter Last Name
+3. Enter Postal Code
+4. Click Continue, First Name: blank, Error message should appear and user should not continue., , Not Executed, </td>
+<td></td>
+<td>11</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-SM-001, Shopping Cart, Smoke, Verify Add to Cart works, User is logged in., 1. Select a product
+2. Click Add to Cart
+3. Open Cart, Any available product, Product should be added to the Cart., , Not Executed, </td>
+<td></td>
+<td>6</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-SM-002, Checkout, Smoke, Verify Checkout button works, Product is in Cart., 1. Open Cart
+2. Click Checkout, Product in Cart, Checkout page should open successfully., , Not Executed, </td>
+<td></td>
+<td>8</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-F-002, Shopping Cart, Functional, Verify product can be removed from cart, Product is already in Cart., 1. Open Cart
+2. Click Remove
+3. Check Cart, Sauce Labs Backpack, Product should be removed from the Cart., , Not Executed, </td>
+<td></td>
+<td>19</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-N-002, Checkout, Negative, Verify checkout does not continue with missing details, Product is in Cart and Checkout is open., 1. Leave a required field blank
+2. Click Continue, Required field blank, Validation error should appear and user should remain on Checkout Information page., , Not Executed, </td>
+<td></td>
+<td>11</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.Cart.RemoveProductFromCart_Test.removeProductFromCartTest()'><b>removeProductFromCartTest</b><br>Test class: swaglabs.tests.Cart.RemoveProductFromCart_Test</td>
+<td></td>
+<td>19</td>
+<td>swaglabs.tests.Cart.RemoveProductFromCart_Test@49e53c76</td></tr>
+<tr>
+<td title='swaglabs.tests.Checkout.CompleteCheckout_Test.completeCheckoutTest()'><b>completeCheckoutTest</b><br>Test class: swaglabs.tests.Checkout.CompleteCheckout_Test</td>
+<td></td>
+<td>15</td>
+<td>swaglabs.tests.Checkout.CompleteCheckout_Test@2a3b5b47</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-S-001, Cart & Checkout, System, Verify Cart to Checkout flow, User is logged in and product is in Cart., 1. Open Cart
+2. Click Checkout
+3. Enter customer details
+4. Click Continue, Saniya / B / 583101, Checkout Overview page should be displayed., , Not Executed, </td>
+<td></td>
+<td>13</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.Cart.AddProductToCart_Test.addProductToCartTest()'><b>addProductToCartTest</b><br>Test class: swaglabs.tests.Cart.AddProductToCart_Test</td>
+<td></td>
+<td>7</td>
+<td>swaglabs.tests.Cart.AddProductToCart_Test@38d8f54a</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-I-001, Cart & Checkout, Integration, Verify Cart opens Checkout, Product is in Cart., 1. Open Cart
+2. Click Checkout, Product in Cart, Checkout Information page should open., , Not Executed, </td>
+<td></td>
+<td>9</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-S-002, Cart & Order, System, Verify complete purchase flow, User is logged in and product is in Cart., 1. Open Cart
+2. Checkout
+3. Enter details
+4. Continue
+5. Click Finish, Valid product and customer details, Order should be completed and confirmation page should appear., , Not Executed, </td>
+<td></td>
+<td>15</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.Order.CompletePurchase_Test.completePurchaseTest()'><b>completePurchaseTest</b><br>Test class: swaglabs.tests.Order.CompletePurchase_Test</td>
+<td></td>
+<td>14</td>
+<td>swaglabs.tests.Order.CompletePurchase_Test@18078bef</td></tr>
+<tr>
+<td title='swaglabs.tests.Order.CartToCheckout_Test.cartToCheckoutTest()'><b>cartToCheckoutTest</b><br>Test class: swaglabs.tests.Order.CartToCheckout_Test</td>
+<td></td>
+<td>12</td>
+<td>swaglabs.tests.Order.CartToCheckout_Test@689604d9</td></tr>
+<tr>
+<td title='swaglabs.tests.Logout_Test.logoutTest()'><b>logoutTest</b><br>Test class: swaglabs.tests.Logout_Test</td>
+<td></td>
+<td>4</td>
+<td>swaglabs.tests.Logout_Test@409bf450</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-F-001, Shopping Cart, Functional, Verify product can be added to cart, User is logged in., 1. Select a product
+2. Click Add to Cart
+3. Open Cart, Sauce Labs Backpack, Product should be displayed in the Cart., , Not Executed, </td>
+<td></td>
+<td>7</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.ExcelDrivenTest.executeTestCase()'><b>executeTestCase</b><br>Test class: swaglabs.tests.ExcelDrivenTest<br>Parameters: TC-I-002, Checkout & Order, Integration, Verify Checkout completes the order, Valid checkout details are entered., 1. Click Continue
+2. Review order
+3. Click Finish, Valid customer details, Order should be completed and confirmation should be displayed., , Not Executed, </td>
+<td></td>
+<td>15</td>
+<td>swaglabs.tests.ExcelDrivenTest@223d2c72</td></tr>
+<tr>
+<td title='swaglabs.tests.Checkout.MissingCheckoutDetails_Test.missingCheckoutDetailsTest()'><b>missingCheckoutDetailsTest</b><br>Test class: swaglabs.tests.Checkout.MissingCheckoutDetails_Test</td>
+<td></td>
+<td>11</td>
+<td>swaglabs.tests.Checkout.MissingCheckoutDetails_Test@55b699ef</td></tr>
+<tr>
+<td title='swaglabs.tests.Checkout.OpenCheckout_Test.openCheckoutTest()'><b>openCheckoutTest</b><br>Test class: swaglabs.tests.Checkout.OpenCheckout_Test</td>
+<td></td>
+<td>9</td>
+<td>swaglabs.tests.Checkout.OpenCheckout_Test@35d019a3</td></tr>
+</table><p>
+</body>
+</html>

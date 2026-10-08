@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Functional Test Suite">
+
+    <test name="Functional Tests">
+
+        <groups>
+            <run>
+                <include name="FT"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="swaglabs.tests.Cart"/>
+            <package name="swaglabs.tests.Checkout"/>
+            <package name="swaglabs.tests.Order"/>
+        </packages>
+
+    </test>
+
+</suite>

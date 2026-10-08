@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Functional Test Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="testType" value="Functional"/>
+  <test thread-count="5" name="Functional Tests(failed)">
+    <classes>
+      <class name="swaglabs.tests.ExcelDrivenTest">
+        <methods>
+          <include name="setUpTest"/>
+          <include name="closeBrowser"/>
+          <include name="executeTestCase"/>
+        </methods>
+      </class> <!-- swaglabs.tests.ExcelDrivenTest -->
+    </classes>
+  </test> <!-- Functional Tests(failed) -->
+</suite> <!-- Failed suite [Functional Test Suite] -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Parallel Test Suite"
+       parallel="classes"
+       thread-count="4">
+
+    <test name="All Test Scripts">
+
+        <packages>
+            <package name="swaglabs.tests"/>
+            <package name="swaglabs.tests.Cart"/>
+            <package name="swaglabs.tests.Checkout"/>
+            <package name="swaglabs.tests.Order"/>
+        </packages>
+
+    </test>
+
+</suite>

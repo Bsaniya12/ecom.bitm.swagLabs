@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [SwagLabs Parallel Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="Negative(failed)">
+    <parameter name="testType" value="Negative"/>
+    <classes>
+      <class name="swaglabs.tests.ExcelDrivenTest">
+        <methods>
+          <include name="setUpTest"/>
+          <include name="closeBrowser"/>
+          <include name="executeTestCase" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- swaglabs.tests.ExcelDrivenTest -->
+    </classes>
+  </test> <!-- Negative(failed) -->
+  <test thread-count="5" parallel="tests" name="Integration(failed)">
+    <parameter name="testType" value="Integration"/>
+    <classes>
+      <class name="swaglabs.tests.ExcelDrivenTest">
+        <methods>
+          <include name="setUpTest"/>
+          <include name="closeBrowser"/>
+          <include name="executeTestCase" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- swaglabs.tests.ExcelDrivenTest -->
+    </classes>
+  </test> <!-- Integration(failed) -->
+  <test thread-count="5" parallel="tests" name="Functional(failed)">
+    <parameter name="testType" value="Functional"/>
+    <classes>
+      <class name="swaglabs.tests.ExcelDrivenTest">
+        <methods>
+          <include name="setUpTest"/>
+          <include name="closeBrowser"/>
+          <include name="executeTestCase" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- swaglabs.tests.ExcelDrivenTest -->
+    </classes>
+  </test> <!-- Functional(failed) -->
+  <test thread-count="5" parallel="tests" name="Smoke(failed)">
+    <parameter name="testType" value="Smoke"/>
+    <classes>
+      <class name="swaglabs.tests.ExcelDrivenTest">
+        <methods>
+          <include name="setUpTest"/>
+          <include name="closeBrowser"/>
+          <include name="executeTestCase" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- swaglabs.tests.ExcelDrivenTest -->
+    </classes>
+  </test> <!-- Smoke(failed) -->
+  <test thread-count="5" parallel="tests" name="System(failed)">
+    <parameter name="testType" value="System"/>
+    <classes>
+      <class name="swaglabs.tests.ExcelDrivenTest">
+        <methods>
+          <include name="setUpTest"/>
+          <include name="closeBrowser"/>
+          <include name="executeTestCase" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- swaglabs.tests.ExcelDrivenTest -->
+    </classes>
+  </test> <!-- System(failed) -->
+</suite> <!-- Failed suite [SwagLabs Parallel Suite] -->
