@@ -14,17 +14,11 @@ public class TestDataUtility {
 
         try {
 
-            InputStream inputStream =
-                    TestDataUtility.class
-                            .getClassLoader()
-                            .getResourceAsStream(
-                                    "SauceDemo_TestData.xlsx"
-                            );
+            InputStream inputStream = TestDataUtility.class .getClassLoader() .getResourceAsStream( "SauceDemo_TestData.xlsx");
 
             if (inputStream == null) {
-                throw new RuntimeException(
-                        "SauceDemo_TestData.xlsx not found in src/test/resources"
-                );
+                throw new RuntimeException( "SauceDemo_TestData.xlsx not found in src/test/resources");
+                       
             }
 
             Workbook workbook =
@@ -37,28 +31,23 @@ public class TestDataUtility {
                 workbook.close();
                 inputStream.close();
 
-                throw new RuntimeException(
-                        "Sheet 'TestData' not found in SauceDemo_TestData.xlsx"
-                );
+                throw new RuntimeException( "Sheet 'TestData' not found in SauceDemo_TestData.xlsx");
+                         
             }
 
-            DataFormatter formatter =
-                    new DataFormatter();
-
+            DataFormatter formatter =new DataFormatter();
+                    
             for (Row row : sheet) {
 
-                String id =
-                        formatter.formatCellValue(
-                                row.getCell(0)
-                        );
+                String id =formatter.formatCellValue(  row.getCell(0) );
+                       
+                                
+                       
 
                 if (id.equalsIgnoreCase(testCaseId)) {
 
-                    String value =
-                            formatter.formatCellValue(
-                                    row.getCell(columnNumber)
-                            );
-
+                    String value =formatter.formatCellValue(row.getCell(columnNumber));
+                           
                     workbook.close();
                     inputStream.close();
 
@@ -69,16 +58,14 @@ public class TestDataUtility {
             workbook.close();
             inputStream.close();
 
-            throw new RuntimeException(
-                    "Test Case ID not found: " + testCaseId
-            );
+            throw new RuntimeException("Test Case ID not found: " + testCaseId);
+                    
+          
 
         } catch (Exception e) {
 
-            throw new RuntimeException(
-                    "Unable to read test data from Excel",
-                    e
-            );
+            throw new RuntimeException("Unable to read test data from Excel",e);
+
         }
     }
 }

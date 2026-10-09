@@ -1,1 +1,6 @@
 /target/
+/functional.xml
+/smoke.xml
+/negative.xml
+/test-output/
+*.class

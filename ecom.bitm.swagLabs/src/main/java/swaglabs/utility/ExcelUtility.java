@@ -18,13 +18,11 @@ public class ExcelUtility {
     public void openExcel(String fileName, String sheetName) {
 
         try {
-            InputStream inputStream =
-                    getClass().getClassLoader().getResourceAsStream(fileName);
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
 
             if (inputStream == null) {
                 throw new RuntimeException(
-                        "Excel file not found in src/main/resources: " + fileName
-                );
+                        "Excel file not found in src/main/resources: " + fileName);
             }
 
             workbook = new XSSFWorkbook(inputStream);
@@ -32,8 +30,7 @@ public class ExcelUtility {
 
             if (sheet == null) {
                 throw new RuntimeException(
-                        "Sheet not found in Excel file: " + sheetName
-                );
+                        "Sheet not found in Excel file: " + sheetName );
             }
 
         } catch (Exception e) {

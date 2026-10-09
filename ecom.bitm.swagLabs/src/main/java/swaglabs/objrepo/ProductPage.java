@@ -16,13 +16,9 @@ public class ProductPage {
     // Add product to cart using product name from test data
     public void addProductToCart(String productName) {
 
-        String productId = productName
-                .toLowerCase()
-                .replace("sauce labs ", "")
-                .replace(" ", "-");
+        String productId = productName.toLowerCase().replace("sauce labs ", "").replace(" ", "-");
 
-        String addToCartId =
-                "add-to-cart-sauce-labs-" + productId;
+        String addToCartId ="add-to-cart-sauce-labs-" + productId;
 
         driver.findElement(By.id(addToCartId)).click();
     }
@@ -36,11 +32,9 @@ public class ProductPage {
     public void logout() {
 
         driver.findElement(
-                By.id("react-burger-menu-btn")
-        ).click();
+                By.id("react-burger-menu-btn")).click();
 
-        driver.findElement(
-                By.id("logout_sidebar_link")
-        ).click();
+        driver.findElement(By.id("logout_sidebar_link")).click();
+        
     }
 }

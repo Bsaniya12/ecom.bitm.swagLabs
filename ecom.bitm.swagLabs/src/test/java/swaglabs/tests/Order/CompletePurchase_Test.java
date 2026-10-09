@@ -1,3 +1,4 @@
+
 package swaglabs.tests.Order;
 
 import java.time.Duration;
@@ -6,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import swaglabs.baseClass.BaseClass;
@@ -19,63 +21,42 @@ import swaglabs.utility.TestDataUtility;
 
 public class CompletePurchase_Test extends BaseClass {
 
-    @Test(groups = {"ST"})
-    public void completePurchaseTest()
-            throws InterruptedException {
+    @Test(priority = 2, groups = {"ST"})
+    public void completePurchaseTest() throws InterruptedException {
 
         // Read test data from Excel
-        String username =
-                TestDataUtility.getData("TC003", 1);
+        String username = TestDataUtility.getData("TC003", 1);
+        String password = TestDataUtility.getData("TC003", 2);
+        String productName = TestDataUtility.getData("TC003", 3);
+        String firstName = TestDataUtility.getData("TC003", 4);
+        String lastName = TestDataUtility.getData("TC003", 5);
+        String postalCode = TestDataUtility.getData("TC003", 6);
 
-        String password =
-                TestDataUtility.getData("TC003", 2);
-
-        String productName =
-                TestDataUtility.getData("TC003", 3);
-
-        String firstName =
-                TestDataUtility.getData("TC003", 4);
-
-        String lastName =
-                TestDataUtility.getData("TC003", 5);
-
-        String postalCode =
-                TestDataUtility.getData("TC003", 6);
-
-        // Login
-        LoginPage loginPage =
-                new LoginPage(getDriver());
-
-        loginPage.login(
-                username,
-                password
-        );
+        // Log in to SauceDemo
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.login(username, password);
 
         waitForSeconds(2);
 
-        // Add product to cart
-        ProductPage productPage =
-                new ProductPage(getDriver());
-
+        // Add a product to the cart
+        ProductPage productPage = new ProductPage(getDriver());
         productPage.addProductToCart(productName);
 
         waitForSeconds(2);
 
+        // Open the shopping cart
         productPage.openCart();
 
         waitForSeconds(2);
 
-        // Checkout
-        CartPage cartPage =
-                new CartPage(getDriver());
-
+        // Proceed to checkout
+        CartPage cartPage = new CartPage(getDriver());
         cartPage.clickCheckout();
 
         waitForSeconds(2);
 
-        CheckoutPage1 checkoutPage1 =
-                new CheckoutPage1(getDriver());
-
+        // Enter checkout information
+        CheckoutPage1 checkoutPage1 = new CheckoutPage1(getDriver());
         checkoutPage1.enterCheckoutDetails(
                 firstName,
                 lastName,
@@ -86,41 +67,29 @@ public class CompletePurchase_Test extends BaseClass {
 
         waitForSeconds(2);
 
-        // Verify Checkout Overview
-        WebDriverWait wait =
-                new WebDriverWait(
-                        getDriver(),
-                        Duration.ofSeconds(10)
-                );
+        // Verify the Checkout Overview page
+        WebDriverWait wait = new WebDriverWait(
+                getDriver(),
+                Duration.ofSeconds(10)
+        );
 
-        String title =
-                wait.until(
-                        ExpectedConditions
-                                .visibilityOfElementLocated(
-                                        By.className("title")
-                                )
-                ).getText();
-
+        String title = wait.until(ExpectedConditions.visibilityOfElementLocated(  By.className("title"))).getText();
+    
         Assert.assertEquals(
                 title,
                 "Checkout: Overview",
                 "Checkout Overview page was not displayed"
         );
 
-        // Finish purchase
-        CheckoutPage2 checkoutPage2 =
-                new CheckoutPage2(getDriver());
-
+        // Finish the purchase
+        CheckoutPage2 checkoutPage2 = new CheckoutPage2(getDriver());
         checkoutPage2.clickFinish();
 
         waitForSeconds(2);
 
         // Verify order confirmation
-        CheckoutPage3 checkoutPage3 =
-                new CheckoutPage3(getDriver());
-
-        String confirmation =
-                checkoutPage3.getOrderConfirmation();
+        CheckoutPage3 checkoutPage3 = new CheckoutPage3(getDriver());
+        String confirmation = checkoutPage3.getOrderConfirmation();
 
         Assert.assertEquals(
                 confirmation,
@@ -128,8 +97,6 @@ public class CompletePurchase_Test extends BaseClass {
                 "Order confirmation was not displayed"
         );
 
-        System.out.println(
-                "Complete Purchase Test Passed"
-        );
+        Reporter.log( "Complete Purchase Test Passed",true);
     }
 }

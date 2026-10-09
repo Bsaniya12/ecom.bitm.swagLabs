@@ -19,26 +19,19 @@ public class CartPage {
     public CartPage(WebDriver driver) {
         this.driver = driver;
     }
-
+    
     // Remove Backpack from cart
     public void removeBackpack() {
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        wait.until(
-                ExpectedConditions.elementToBeClickable(removeBackpack)
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(removeBackpack)).click();
     }
 
     // Click Checkout
     public void clickCheckout() {
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(checkoutButton)
-        ).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
     }
 }

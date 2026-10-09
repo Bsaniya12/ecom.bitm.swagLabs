@@ -25,52 +25,36 @@ public class CheckoutPage1 {
     // Enter First Name
     public void enterFirstName(String first) {
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(firstName)
-        ).sendKeys(first);
+        wait.until( ExpectedConditions.visibilityOfElementLocated(firstName)).sendKeys(first);
     }
 
     // Enter Last Name
     public void enterLastName(String last) {
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(lastName)
-        ).sendKeys(last);
+        wait.until( ExpectedConditions.visibilityOfElementLocated(lastName)).sendKeys(last);
     }
 
     // Enter Postal Code
     public void enterPostalCode(String postal) {
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(postalCode)
-        ).sendKeys(postal);
+        wait.until( ExpectedConditions.visibilityOfElementLocated(postalCode)).sendKeys(postal);
     }
 
     // Click Continue
     public void clickContinue() {
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        wait.until(
-                ExpectedConditions.elementToBeClickable(continueButton)
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(continueButton)).click();
     }
 
     // Enter complete checkout details
-    public void enterCheckoutDetails(
-            String first,
-            String last,
-            String postal) {
+    public void enterCheckoutDetails( String first, String last, String postal) {
 
         enterFirstName(first);
         enterLastName(last);

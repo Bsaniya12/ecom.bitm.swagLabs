@@ -1,17 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
+
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="swaglabs.tests.ExcelDrivenTest"/>
-      <class name="swaglabs.tests.Order.CompletePurchase_Test"/>
-      <class name="swaglabs.tests.Order.CartToCheckout_Test"/>
-      <class name="swaglabs.tests.Cart.RemoveProductFromCart_Test"/>
-      <class name="swaglabs.tests.Checkout.MissingCheckoutDetails_Test"/>
-      <class name="swaglabs.tests.Checkout.OpenCheckout_Test"/>
-      <class name="swaglabs.tests.Cart.AddProductToCart_Test"/>
-      <class name="swaglabs.tests.Checkout.BlankFirstName_Test"/>
-      <class name="swaglabs.tests.Checkout.CompleteCheckout_Test"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+
+<suite name="Batch Suite" verbose="1">
+
+    <test name="Batch Test">
+        <groups>
+            <run>
+                <include name="FT"/>
+                <include name="IT"/>
+                <include name="ST"/>
+                <include name="SM"/>
+                <include name="NT"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="swaglabs.tests.Order.CompletePurchase_Test"/>
+            <class name="swaglabs.tests.Order.CartToCheckout_Test"/>
+
+            <class name="swaglabs.tests.Cart.RemoveProductFromCart_Test"/>
+            <class name="swaglabs.tests.Cart.AddProductToCart_Test"/>
+
+            <class name="swaglabs.tests.Checkout.MissingCheckoutDetails_Test"/>
+            <class name="swaglabs.tests.Checkout.BlankFirstName_Test"/>
+            <class name="swaglabs.tests.Checkout.OpenCheckout_Test"/>
+            <class name="swaglabs.tests.Checkout.CompleteCheckout_Test"/>
+
+            <class name="swaglabs.tests.Logout_Test"/>
+        </classes>
+    </test>
+
+</suite>

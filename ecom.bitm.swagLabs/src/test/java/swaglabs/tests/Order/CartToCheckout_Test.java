@@ -1,3 +1,4 @@
+
 package swaglabs.tests.Order;
 
 import java.time.Duration;
@@ -6,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import swaglabs.baseClass.BaseClass;
@@ -18,86 +20,52 @@ import swaglabs.utility.TestDataUtility;
 public class CartToCheckout_Test extends BaseClass {
 
     @Test(groups = {"ST"})
-    public void cartToCheckoutTest()
-            throws InterruptedException {
+    public void cartToCheckoutTest() throws InterruptedException {
 
         // Read test data from Excel
-        String username =
-                TestDataUtility.getData("TC003", 1);
+        String username = TestDataUtility.getData("TC003", 1);
+        String password = TestDataUtility.getData("TC003", 2);
+        String productName = TestDataUtility.getData("TC003", 3);
+        String firstName = TestDataUtility.getData("TC003", 4);
+        String lastName = TestDataUtility.getData("TC003", 5);
+        String postalCode = TestDataUtility.getData("TC003", 6);
 
-        String password =
-                TestDataUtility.getData("TC003", 2);
-
-        String productName =
-                TestDataUtility.getData("TC003", 3);
-
-        String firstName =
-                TestDataUtility.getData("TC003", 4);
-
-        String lastName =
-                TestDataUtility.getData("TC003", 5);
-
-        String postalCode =
-                TestDataUtility.getData("TC003", 6);
-
-        // Login
-        LoginPage loginPage =
-                new LoginPage(getDriver());
-
-        loginPage.login(
-                username,
-                password
-        );
+        // Log in to SauceDemo
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.login(username, password);
 
         waitForSeconds(2);
 
-        // Add product to cart
-        ProductPage productPage =
-                new ProductPage(getDriver());
-
+        // Add a product to the cart
+        ProductPage productPage = new ProductPage(getDriver());
         productPage.addProductToCart(productName);
 
         waitForSeconds(2);
 
+        // Open the shopping cart
         productPage.openCart();
 
         waitForSeconds(2);
 
-        // Checkout
-        CartPage cartPage =
-                new CartPage(getDriver());
-
+        // Proceed to checkout
+        CartPage cartPage = new CartPage(getDriver());
         cartPage.clickCheckout();
 
         waitForSeconds(2);
 
-        CheckoutPage1 checkoutPage1 =
-                new CheckoutPage1(getDriver());
-
-        checkoutPage1.enterCheckoutDetails(
-                firstName,
-                lastName,
-                postalCode
-        );
-
+        // Enter checkout information
+        CheckoutPage1 checkoutPage1 = new CheckoutPage1(getDriver());
+        checkoutPage1.enterCheckoutDetails( firstName, lastName, postalCode);
+                
         checkoutPage1.clickContinue();
 
         waitForSeconds(2);
 
-        // Verify Checkout Overview
-        WebDriverWait wait =
-                new WebDriverWait(
-                        getDriver(),
-                        Duration.ofSeconds(10)
-                );
-
-        String title =
-                wait.until(
-                        ExpectedConditions
-                                .visibilityOfElementLocated(
-                                        By.className("title")
-                                )
-                ).getText();
+        // Verify the Checkout Overview page
+        WebDriverWait wait = new WebDriverWait( getDriver(),Duration.ofSeconds(10) );
+        
+        String title = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("title")) ).getText();
+              
 
         Assert.assertEquals(
                 title,
@@ -105,8 +73,7 @@ public class CartToCheckout_Test extends BaseClass {
                 "Checkout Overview page was not displayed"
         );
 
-        System.out.println(
-                "Cart to Checkout flow completed successfully."
-        );
+        Reporter.log( "Cart to Checkout flow completed successfully.",  true);
+        
     }
 }

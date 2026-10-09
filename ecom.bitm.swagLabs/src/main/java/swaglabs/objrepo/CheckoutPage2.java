@@ -22,11 +22,10 @@ public class CheckoutPage2 {
     // Click Finish
     public void clickFinish() {
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         wait.until(
-                ExpectedConditions.elementToBeClickable(finishButton)
-        ).click();
+                ExpectedConditions.elementToBeClickable(finishButton)).click();
+       
     }
 }

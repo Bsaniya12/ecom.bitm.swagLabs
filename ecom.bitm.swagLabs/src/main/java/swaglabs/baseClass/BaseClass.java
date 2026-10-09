@@ -16,9 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
-    private static ThreadLocal<WebDriver> driver =
-            new ThreadLocal<>();
-
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     public static Properties properties;
 
     public WebDriver getDriver() {
@@ -26,137 +24,68 @@ public class BaseClass {
     }
 
     public void loadProperties() {
-
         try {
-
             properties = new Properties();
 
-            InputStream inputStream =
-                    getClass()
-                            .getClassLoader()
-                            .getResourceAsStream(
-                                    "config.properties"
-                            );
+            InputStream inputStream = getClass()
+                    .getClassLoader()
+                    .getResourceAsStream("config.properties");
 
             if (inputStream == null) {
-
                 throw new RuntimeException(
-                        "config.properties not found in src/main/resources"
-                );
+                        "config.properties not found in src/main/resources");
             }
 
             properties.load(inputStream);
-
             inputStream.close();
 
         } catch (Exception e) {
-
-            throw new RuntimeException(
-                    "Unable to load config.properties",
-                    e
-            );
+            throw new RuntimeException("Unable to load config.properties", e);
         }
     }
 
     @BeforeMethod(alwaysRun = true)
     public void setup() {
-
         loadProperties();
 
-        String browser =
-                properties.getProperty("browser");
+        String browser = properties.getProperty("browser");
 
         if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
 
-            WebDriverManager
-                    .chromedriver()
-                    .setup();
-
-            ChromeOptions options =
-                    new ChromeOptions();
-
+            ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
+            options.addArguments("--disable-save-password-bubble");
+            options.addArguments("--disable-features=PasswordLeakDetection");
 
-            options.addArguments(
-                    "--disable-save-password-bubble"
-            );
+            Map<String, Object> prefs = new HashMap<>();
+            prefs.put("credentials_enable_service", false);
+            prefs.put("profile.password_manager_enabled", false);
+            prefs.put("profile.default_content_setting_values.notifications", 2);
 
-            options.addArguments(
-                    "--disable-features=PasswordLeakDetection"
-            );
+            options.setExperimentalOption("prefs", prefs);
 
-            Map<String, Object> prefs =
-                    new HashMap<>();
-
-            prefs.put(
-                    "credentials_enable_service",
-                    false
-            );
-
-            prefs.put(
-                    "profile.password_manager_enabled",
-                    false
-            );
-
-            prefs.put(
-                    "profile.default_content_setting_values.notifications",
-                    2
-            );
-
-            options.setExperimentalOption(
-                    "prefs",
-                    prefs
-            );
-
-            WebDriver webDriver =
-                    new ChromeDriver(options);
-
-            driver.set(webDriver);
+            driver.set(new ChromeDriver(options));
 
         } else {
-
-            throw new RuntimeException(
-                    "Unsupported browser: " + browser
-            );
+            throw new RuntimeException("Unsupported browser: " + browser);
         }
 
-        getDriver()
-                .manage()
-                .window()
-                .maximize();
+        getDriver().manage().window().maximize();
+        String implicitWait = properties.getProperty("implicitWait");
 
-        String implicitWait =
-                properties.getProperty("implicitWait");
+        getDriver().manage().timeouts().implicitlyWait(
+                Duration.ofSeconds(Long.parseLong(implicitWait)));
 
-        getDriver()
-                .manage()
-                .timeouts()
-                .implicitlyWait(
-                        Duration.ofSeconds(
-                                Long.parseLong(
-                                        implicitWait
-                                )
-                        )
-                );
-
-        getDriver().get(
-                properties.getProperty("url")
-        );
+        getDriver().get(properties.getProperty("url"));
     }
-
-    public void waitForSeconds(int seconds)
-            throws InterruptedException {
-
+    public void waitForSeconds(int seconds) throws InterruptedException {
         Thread.sleep(seconds * 1000L);
     }
-
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-
         if (getDriver() != null) {
-
             getDriver().quit();
-
             driver.remove();
         }
     }
