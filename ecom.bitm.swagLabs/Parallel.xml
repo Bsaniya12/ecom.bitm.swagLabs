@@ -11,7 +11,9 @@
             <package name="swaglabs.tests"/>
             <package name="swaglabs.tests.Cart"/>
             <package name="swaglabs.tests.Checkout"/>
+            <package name="swaglabs.tests.Login"/>
             <package name="swaglabs.tests.Order"/>
+            <package name="swaglabs.tests.Product"/>
         </packages>
 
     </test>
