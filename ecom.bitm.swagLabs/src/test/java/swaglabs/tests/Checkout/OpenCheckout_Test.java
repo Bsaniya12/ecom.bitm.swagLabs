@@ -50,20 +50,13 @@ public class OpenCheckout_Test extends BaseClass {
         waitForSeconds(2);
 
         // Verify the Checkout Information page
-        WebDriverWait wait = new WebDriverWait(
-                getDriver(),
-                Duration.ofSeconds(10)
-        );
-
+        WebDriverWait wait = new WebDriverWait( getDriver(), Duration.ofSeconds(10));
+             
         String title = wait.until( ExpectedConditions.visibilityOfElementLocated(By.className("title"))).getText();
                
-
-        Assert.assertEquals(
-                title,
-                "Checkout: Your Information",
-                "Checkout Information page was not displayed"
-        );
-
+        Assert.assertEquals(   title,"Checkout: Your Information",
+        		"Checkout Information page was not displayed");
+        
         Reporter.log( "Checkout Information page displayed successfully.", true);
                
               

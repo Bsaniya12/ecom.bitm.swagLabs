@@ -26,7 +26,23 @@
             <class name="swaglabs.tests.Checkout.BlankFirstName_Test"/>
             <class name="swaglabs.tests.Checkout.OpenCheckout_Test"/>
             <class name="swaglabs.tests.Checkout.CompleteCheckout_Test"/>
+            
+			<class name="swaglabs.tests.Login.InvalidLogin_Test"/>
+			<class name="swaglabs.tests.Login.BlankUsername_Test"/>
+			<class name="swaglabs.tests.Login.BlankPassword_Test"/>
 
+			<class name="swaglabs.tests.Product.SortProductsAtoZ_Test"/>
+			<class name="swaglabs.tests.Product.SortProductsPrice_Test"/>
+			<class name="swaglabs.tests.Product.ProductDetails_Test"/>
+			
+		
+			<class name="swaglabs.tests.Cart.CartBadgeCount_Test"/>
+			<class name="swaglabs.tests.Cart.ContinueShopping_Test"/>
+			<class name="swaglabs.tests.Checkout.BlankLastName_Test"/>
+			<class name="swaglabs.tests.Checkout.BlankPostalCode_Test"/>
+			<class name="swaglabs.tests.Order.BackHome_Test"/>
+
+         
             <class name="swaglabs.tests.Logout_Test"/>
         </classes>
     </test>

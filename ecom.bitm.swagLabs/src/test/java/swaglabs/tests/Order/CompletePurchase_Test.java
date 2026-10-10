@@ -57,30 +57,21 @@ public class CompletePurchase_Test extends BaseClass {
 
         // Enter checkout information
         CheckoutPage1 checkoutPage1 = new CheckoutPage1(getDriver());
-        checkoutPage1.enterCheckoutDetails(
-                firstName,
-                lastName,
-                postalCode
-        );
-
+        checkoutPage1.enterCheckoutDetails( firstName,lastName,  postalCode);
+     
         checkoutPage1.clickContinue();
 
         waitForSeconds(2);
 
         // Verify the Checkout Overview page
-        WebDriverWait wait = new WebDriverWait(
-                getDriver(),
-                Duration.ofSeconds(10)
-        );
+        WebDriverWait wait = new WebDriverWait( getDriver(),Duration.ofSeconds(10));
+               
 
         String title = wait.until(ExpectedConditions.visibilityOfElementLocated(  By.className("title"))).getText();
     
-        Assert.assertEquals(
-                title,
-                "Checkout: Overview",
-                "Checkout Overview page was not displayed"
-        );
-
+        Assert.assertEquals( title, "Checkout: Overview", "Checkout Overview page was not displayed");
+               
+          
         // Finish the purchase
         CheckoutPage2 checkoutPage2 = new CheckoutPage2(getDriver());
         checkoutPage2.clickFinish();
@@ -91,12 +82,9 @@ public class CompletePurchase_Test extends BaseClass {
         CheckoutPage3 checkoutPage3 = new CheckoutPage3(getDriver());
         String confirmation = checkoutPage3.getOrderConfirmation();
 
-        Assert.assertEquals(
-                confirmation,
-                "Thank you for your order!",
-                "Order confirmation was not displayed"
-        );
-
+        Assert.assertEquals( confirmation, "Thank you for your order!",
+        		"Order confirmation was not displayed");
+                                     
         Reporter.log( "Complete Purchase Test Passed",true);
     }
 }

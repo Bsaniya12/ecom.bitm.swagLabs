@@ -80,7 +80,7 @@ public class BaseClass {
         getDriver().get(properties.getProperty("url"));
     }
     public void waitForSeconds(int seconds) throws InterruptedException {
-        Thread.sleep(seconds * 1000L);
+        Thread.sleep(1000);
     }
     @AfterMethod(alwaysRun = true)
     public void tearDown() {

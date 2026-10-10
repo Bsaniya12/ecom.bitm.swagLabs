@@ -1,41 +1,48 @@
+
 package swaglabs.objrepo;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
     WebDriver driver;
 
-    // Locators
-    By username = By.id("user-name");
-    By password = By.id("password");
-    By loginButton = By.id("login-button");
+    // Locators using @FindBy
+    @FindBy(id = "user-name")
+    WebElement username;
+
+    @FindBy(id = "password")
+    WebElement password;
+
+    @FindBy(id = "login-button")
+    WebElement loginButton;
+    @FindBy(css = "h3[data-test='error']")
+    WebElement errorMessage;
 
     // Constructor
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-    }
-
-    // Enter username
-    public void enterUsername(String user) {
-        driver.findElement(username).sendKeys(user);
-    }
-
-    // Enter password
-    public void enterPassword(String pass) {
-        driver.findElement(password).sendKeys(pass);
+        PageFactory.initElements(driver, this);
     }
 
     // Click login
     public void clickLogin() {
-        driver.findElement(loginButton).click();
+        loginButton.click();
     }
 
     // Complete login
     public void login(String user, String pass) {
-        enterUsername(user);
-        enterPassword(pass);
+        username.sendKeys(user);
+        password.sendKeys(pass);
         clickLogin();
     }
+        
+
+        // Get login error message
+        public String getErrorMessage() {
+            return errorMessage.getText();
+        }
 }

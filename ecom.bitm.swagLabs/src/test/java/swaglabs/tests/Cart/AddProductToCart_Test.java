@@ -42,26 +42,19 @@ public class AddProductToCart_Test extends BaseClass {
         productPage.openCart();
 
         // Wait for the cart product to appear
-        WebDriverWait wait = new WebDriverWait(
-                getDriver(),
-                Duration.ofSeconds(10)
-        );
+        WebDriverWait wait = new WebDriverWait( getDriver(), Duration.ofSeconds(10));
+    
 
         WebElement cartProduct = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector(".cart_item .inventory_item_name")
-                )
-        );
-
-        // Verify the product name
+                        By.cssSelector(".cart_item .inventory_item_name")));
+        
+         // Verify the product name
         String actualProductName = cartProduct.getText();
 
-        Assert.assertEquals(
-                actualProductName,
-                productNameFromExcel,
-                "Product was not added to the cart"
-        );
-
+        Assert.assertEquals(actualProductName, productNameFromExcel,
+        		  "Product was not added to the cart");
+               
         Reporter.log("Product successfully added to cart: " + productNameFromExcel, true);
        
     }

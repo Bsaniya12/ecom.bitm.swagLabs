@@ -67,12 +67,9 @@ public class CartToCheckout_Test extends BaseClass {
         String title = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("title")) ).getText();
               
 
-        Assert.assertEquals(
-                title,
-                "Checkout: Overview",
-                "Checkout Overview page was not displayed"
-        );
-
+        Assert.assertEquals( title, "Checkout: Overview",
+                "Checkout Overview page was not displayed");
+      
         Reporter.log( "Cart to Checkout flow completed successfully.",  true);
         
     }
