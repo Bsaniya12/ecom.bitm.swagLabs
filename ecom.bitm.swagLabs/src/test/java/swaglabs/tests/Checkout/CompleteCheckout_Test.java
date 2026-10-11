@@ -85,7 +85,8 @@ public class CompleteCheckout_Test extends BaseClass {
         CheckoutPage3 checkoutPage3 = new CheckoutPage3(getDriver());
         String confirmation = checkoutPage3.getOrderConfirmation();
 
-        Assert.assertEquals( confirmation, "Thank you for your order!","Order confirmation was not displayed");
+        Assert.assertEquals( confirmation, "Thank you for your order!",
+        		"Order confirmation was not displayed");
                                              
         Reporter.log("Checkout completed successfully.", true);
     }
