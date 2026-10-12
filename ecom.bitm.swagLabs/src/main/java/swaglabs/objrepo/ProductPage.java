@@ -1,4 +1,3 @@
-
 package swaglabs.objrepo;
 
 import java.time.Duration;
@@ -59,11 +58,8 @@ public class ProductPage {
     // Sort products by name from A to Z
     public void sortProductsByNameAtoZ() {
         Select sortDropdown = new Select(
-                driver.findElement(
-                        By.className("product_sort_container")
-                )
-        );
-
+                driver.findElement( By.className("product_sort_container")));
+             
         sortDropdown.selectByValue("az");
     }
         
@@ -71,54 +67,37 @@ public class ProductPage {
         // Sort products by price from low to high
         public void sortProductsByPriceLowToHigh() {
             Select sortDropdown = new Select(
-                    driver.findElement(
-                            By.className("product_sort_container")
-                    )
-            );
-
+                    driver.findElement( By.className("product_sort_container")));
+                
             sortDropdown.selectByValue("lohi");
         }
             
-
-
-
 
         // Open product details using the product name
         public void openProductDetails(String productName) {
 
             By productLocator = By.xpath(
                     "//div[contains(@class,'inventory_item_name')"
-                            + " and normalize-space()='" + productName + "']"
-            );
-
-            WebDriverWait wait = new WebDriverWait(
-                    driver,
-                    Duration.ofSeconds(10)
-            );
-
+                            + " and normalize-space()='" + productName + "']");
+           
+            WebDriverWait wait = new WebDriverWait(  driver,Duration.ofSeconds(10));
+                  
             WebElement product = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(productLocator)
-            );
-
+                    ExpectedConditions.visibilityOfElementLocated(productLocator));
+           
             product.click();
         }
 
         // Get cart badge count
         public String getCartBadgeCount() {
-            WebDriverWait wait = new WebDriverWait(
-                    driver,
-                    Duration.ofSeconds(10)
-            );
-
+            WebDriverWait wait = new WebDriverWait( driver,  Duration.ofSeconds(10));
+       
             return wait.until(
                     ExpectedConditions.visibilityOfElementLocated(
-                            By.className("shopping_cart_badge")
-                    )
-            ).getText();
+                            By.className("shopping_cart_badge")) ).getText();           
+           
         }
-
-
-        }
+}       
 
         
 
